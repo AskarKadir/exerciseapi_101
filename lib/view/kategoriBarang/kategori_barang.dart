@@ -32,6 +32,10 @@ class _KategoriBarangState extends State<KategoriBarang> {
     });
   }
 
+  void deleteKategoriBarang(int id) async {
+    await kategoriBarangController.deleteKategoriBarang(id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,19 +57,24 @@ class _KategoriBarangState extends State<KategoriBarang> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          const EditKategoriBarang()));
+                                      builder: (context) => EditKategoriBarang(
+                                            oldname:
+                                                listKategoriBarang[index].nama,
+                                            id: listKategoriBarang[index].id,
+                                          )));
                             },
                             icon: const Icon(Icons.edit_outlined)),
                         IconButton(
                             onPressed: () {
-                              kategoriBarangController
-                                  .deleteKategoriBarang(
-                                      listKategoriBarang[index].id)
-                                  .then((value) {
-                                setState(() {
-                                  listKategoriBarang.removeAt(index);
-                                });
+                              deleteKategoriBarang(
+                                  listKategoriBarang[index].id);
+                              setState(() {
+                                listKategoriBarang.removeAt(index);
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content:
+                                            Text('Data Berhasil Dihapus')));
                               });
                             },
                             icon: const Icon(Icons.delete_outlined)),

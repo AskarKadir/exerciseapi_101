@@ -58,7 +58,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const KategoriBarang()));
+                          builder: (context) => KategoriBarang()));
 
                   var snackBar =
                       const SnackBar(content: Text('Data Berhasil Disimpan'));

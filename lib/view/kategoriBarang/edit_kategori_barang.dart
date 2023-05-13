@@ -1,11 +1,18 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../../controller/kategori_barang_controller.dart';
+import '../../model/kategori_barang_model.dart';
 import 'kategori_barang.dart';
 
 class EditKategoriBarang extends StatefulWidget {
-  const EditKategoriBarang({super.key});
+  final int? id;
+  final String? oldname;
+
+  const EditKategoriBarang({super.key, this.id, this.oldname});
 
   @override
   State<EditKategoriBarang> createState() => _EditKategoriBarangState();
@@ -13,6 +20,7 @@ class EditKategoriBarang extends StatefulWidget {
 
 class _EditKategoriBarangState extends State<EditKategoriBarang> {
   String? nama;
+  final kategoriBarangController = BarangController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +42,7 @@ class _EditKategoriBarangState extends State<EditKategoriBarang> {
               onChanged: (value) {
                 nama = value;
               },
+              initialValue: widget.oldname,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Nama Kategori is required';
@@ -46,14 +55,15 @@ class _EditKategoriBarangState extends State<EditKategoriBarang> {
               onPressed: () {
                 if (formkey.currentState!.validate()) {
                   formkey.currentState!.save();
-                  EditKategoriBarang();
+                  kategoriBarangController.updateKategoriBarang(
+                      widget.id!, nama!);
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const KategoriBarang()));
 
                   var snackBar =
-                      const SnackBar(content: Text('Data Berhasil Diubah'));
+                      SnackBar(content: Text('Data Berhasil Diubah'));
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
               },
