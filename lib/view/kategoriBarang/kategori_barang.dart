@@ -57,7 +57,16 @@ class _KategoriBarangState extends State<KategoriBarang> {
                             },
                             icon: const Icon(Icons.edit_outlined)),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              kategoriBarangController
+                                  .deleteKategoriBarang(
+                                      listKategoriBarang[index].id)
+                                  .then((value) {
+                                setState(() {
+                                  listKategoriBarang.removeAt(index);
+                                });
+                              });
+                            },
                             icon: const Icon(Icons.delete_outlined)),
                       ],
                     )));
