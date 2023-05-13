@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:publicapi/view/kategoriBarang/add_kategori_barang.dart';
+import 'package:publicapi/view/kategoriBarang/edit_kategori_barang.dart';
 
 import '../../controller/kategori_barang_controller.dart';
 import '../../model/kategori_barang_model.dart';
@@ -53,7 +54,7 @@ class _KategoriBarangState extends State<KategoriBarang> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const AddKategoriBarang()));
+                                          const EditKategoriBarang()));
                             },
                             icon: const Icon(Icons.edit_outlined)),
                         IconButton(
