@@ -48,7 +48,13 @@ class _KategoriBarangState extends State<KategoriBarang> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AddKategoriBarang()));
+                            },
                             icon: const Icon(Icons.edit_outlined)),
                         IconButton(
                             onPressed: () {},
