@@ -42,11 +42,19 @@ class _KategoriBarangState extends State<KategoriBarang> {
           itemCount: listKategoriBarang.length,
           itemBuilder: (context, index) {
             return Card(
-              child: ListTile(
-                  title: Text(listKategoriBarang[index].nama),
-                  trailing: IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.edit))),
-            );
+                child: ListTile(
+                    title: Text(listKategoriBarang[index].nama),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.edit_outlined)),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.delete_outlined)),
+                      ],
+                    )));
           },
         ),
       ),
