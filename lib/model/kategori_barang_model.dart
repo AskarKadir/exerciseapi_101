@@ -29,7 +29,8 @@ class KategoriBarangModel {
 
   String toJson() => json.encode(toMap());
 
-  factory KategoriBarangModel.fromJson(String source) => KategoriBarangModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory KategoriBarangModel.fromJson(String source) =>
+      KategoriBarangModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() => 'KategoriBarangModel(nama: $nama)';
@@ -37,9 +38,8 @@ class KategoriBarangModel {
   @override
   bool operator ==(covariant KategoriBarangModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.nama == nama;
+
+    return other.nama == nama;
   }
 
   @override
