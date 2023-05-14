@@ -65,19 +65,19 @@ class _KategoriBarangState extends State<KategoriBarang> {
                             },
                             icon: const Icon(Icons.edit_outlined)),
                         IconButton(
-                            onPressed: () {
-                              deleteKategoriBarang(
-                                  listKategoriBarang[index].id);
-                              setState(() {
-                                listKategoriBarang.removeAt(index);
+                          onPressed: () {
+                            deleteKategoriBarang(listKategoriBarang[index].id);
+                            setState(() {
+                              listKategoriBarang.removeAt(index);
 
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content:
-                                            Text('Data Berhasil Dihapus')));
-                              });
-                            },
-                            icon: const Icon(Icons.delete_outlined)),
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text('Data Berhasil Dihapus')));
+                            });
+                          },
+                          icon: const Icon(Icons.delete_outlined),
+                          color: Colors.red,
+                        ),
                       ],
                     )));
           },
